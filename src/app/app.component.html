@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <h1>{{title}}</h1>
+
+    <ul>
+        <li *ngFor="let todo of todos" [class.done]="todo.completed">
+            <label>
+                <input type="checkbox" (change)="markDone(todo)" />
+                <span>{{ todo.name }}</span>
+            </label>
+
+            <i (click)="removeTodo(todo)">Remove</i>
+        </li>
+    </ul>
+
+    <input type="text" [(ngModel)]="todoName" placeholder="Todo name" (keypress)="addTodo($event)" />
+    <input type="button" value="Add Todo" (click)="addTodo($event)" />
+</div>
